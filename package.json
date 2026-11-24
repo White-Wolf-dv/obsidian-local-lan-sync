@@ -1,0 +1,30 @@
+{
+  "name": "obsidian-local-lan-sync",
+  "version": "1.1.2",
+  "description": "Manual vault synchronization over local Wi-Fi/LAN with automatic network discovery for desktop and mobile.",
+  "main": "main.js",
+  "author": "White-Wolf-dv",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/White-Wolf-dv/obsidian-local-lan-sync.git"
+  },
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "keywords": [
+    "obsidian",
+    "sync",
+    "lan",
+    "local",
+    "offline",
+    "wifi"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "esbuild": "0.21.5",
+    "obsidian": "latest",
+    "typescript": "5.4.5"
+  }
+}
