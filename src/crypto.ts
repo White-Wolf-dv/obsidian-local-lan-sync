@@ -93,8 +93,8 @@ function sha256Fallback(buffer: ArrayBuffer): string {
 
 export async function sha256Hex(buffer: ArrayBuffer): Promise<string> {
 	try {
-		if (globalThis.crypto && globalThis.crypto.subtle) {
-			const digest = await globalThis.crypto.subtle.digest("SHA-256", buffer);
+		if (window.crypto && window.crypto.subtle) {
+			const digest = await window.crypto.subtle.digest("SHA-256", buffer);
 			const bytes = new Uint8Array(digest);
 			let hex = "";
 			for (let i = 0; i < bytes.length; i++) {
@@ -110,8 +110,8 @@ export async function sha256Hex(buffer: ArrayBuffer): Promise<string> {
 
 export function generateRandomHex(byteLength = 16): string {
 	const bytes = new Uint8Array(byteLength);
-	if (globalThis.crypto && globalThis.crypto.getRandomValues) {
-		globalThis.crypto.getRandomValues(bytes);
+	if (window.crypto && window.crypto.getRandomValues) {
+		window.crypto.getRandomValues(bytes);
 	} else {
 		for (let i = 0; i < byteLength; i++) {
 			bytes[i] = Math.floor(Math.random() * 256);
